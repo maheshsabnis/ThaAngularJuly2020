@@ -95,11 +95,12 @@ Programming With Angualar
 Angular Assignment 1
 Create a Calculator like Windows Calculator
 ======================================================================
+
 1. @angular/core
    1. NgModule, Component, Injectable, Pipe, Directice, Renderer2, ElementRef, HostListener, Input, Output, EventListener, etc.
    2. OnInit, interface for Lifecycle
-2. @angular/common 
-   1. CommonModule 
+2. @angular/common
+   1. CommonModule
    2. @angular/common/http
       1. HttpClientModule
 3. @angular/forms
@@ -115,20 +116,22 @@ Create a Calculator like Windows Calculator
 
 =====================================================================================
 Use Angular Directive for UI Management
+
 - The reusable UI and Behavioral (custom attribute to HTML DOM Elements) objects
 - 3 Types of Directives
   - Component Directive
     - Each component is directive and we can reuse it as HTML UI Element
   - Structural Directives
-    - Used for dynamically ADD / REMOVE DOM based on Data expressions 
-      - *ngFor, *ngIf, *ngSwitch-ngSwitchCase
+    - Used for dynamically ADD / REMOVE DOM based on Data expressions
+      - *ngFor, *ngIf, \*ngSwitch-ngSwitchCase
   - Attribute Directives
     - The Custom Attribute for HTML DOM
       - E.g. ngModel, routerLink, formControlName, formGroup
-    - Most of the Attribute directives can be used for Property-Binding  
+    - Most of the Attribute directives can be used for Property-Binding
 
 ======================================================================================
 Reactive Forms aka Model-Drive-Forms aka Data-Driven-Forms
+
 <form> maped with ngForm internally
 FormGroup, the at-least one form to be submitted, the collection of FormControl
 FormControl is an editable element in form that is mapped with public property of the Mdoel class. The mapping is established using [formControlName] attribute directive of Angular
@@ -168,10 +171,20 @@ FormControl is an editable element in form that is mapped with public property o
 
 ======================================================================================
 Assignment Day 4:
+
 1. Modify the Logic Class to Update and Delete the Product
-2. Generate Delete button for Each Table Row  for the Products table so that whern the button is clicked the Product will be deleted
+2. Generate Delete button for Each Table Row for the Products table so that whern the button is clicked the Product will be deleted
 3. [Mandatory] Add Radio button above the Products Table for Sort and Reverse, When these radiot buttons are clicked the Table must be sorted/ reversed based on ProductName / Price
 4. Add validations for all Product properties like required/ Price cannot be -ve
-5. [Mandatory] Create a Custom validator to chech Uniqueness of ProductId. This means tthat when enduse enters ProductId and Press-Tab, the valdation shoud be executed to check if the ProductId is already available in array. (Hint: Access the Logic class in Custom validator)  
-    
+5. [Mandatory] Create a Custom validator to chech Uniqueness of ProductId. This means tthat when enduse enters ProductId and Press-Tab, the valdation shoud be executed to check if the ProductId is already available in array. (Hint: Access the Logic class in Custom validator)
 
+======================================================================================
+Assignment Day 5
+
+1. Create a Serach component, that will search categories, products from the Category and products component loaded on the page.
+   1. The serach component will have a textbox, that will accept CategoryName / Productname, and the Category and Product components will show data as per the value entered in the textbox. [Mandatory]
+2. Complete the Update and Delete Calls from the ProductComponents as below
+   1. The Delete button for each table row will delete the record
+   2. Each Table row should have an update button, and when this button is clicked that row should become editable row (use cellEdit property of TableCell) and then the Value of Update button should be replaced by 'Save'.
+   3. The use will update each cell of thet row and click on Save button to update the record [Mandatory]
+   4. If user press escape button then the editable row should become readonly again [Mandatory]
