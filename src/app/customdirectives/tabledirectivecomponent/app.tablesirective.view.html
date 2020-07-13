@@ -1,0 +1,31 @@
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <input type="radio" name="r" value='Red' (click)="color='red'"> Red
+            </td>
+            <td>
+                <input type="radio" name="r" value='Yellow' (click)="color='yellow'"> Yellow
+            </td>
+            <td>
+                <input type="radio" name="r" value='Green' (click)="color='green'"> Green
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let h of headers">{{h}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rows of DataSource" (click)="onRowClick(rows)" [setColor]="color">
+            <td *ngFor="let h of headers">{{rows[h]}}</td>
+            <td>
+                <input type="button" value="Delete">
+            </td>
+        </tr>
+    </tbody>
+</table>

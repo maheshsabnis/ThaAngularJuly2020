@@ -188,3 +188,38 @@ Assignment Day 5
    2. Each Table row should have an update button, and when this button is clicked that row should become editable row (use cellEdit property of TableCell) and then the Value of Update button should be replaced by 'Save'.
    3. The use will update each cell of thet row and click on Save button to update the record [Mandatory]
    4. If user press escape button then the editable row should become readonly again [Mandatory]
+
+================================================================================================
+
+1. Http Secure Communication for Secure REST APIs
+2. Working with Custom UI in Angular aka Angular Extensibility
+   1. Creating Custom Directives
+      1. UI and Behavior destribution across multiple components in Current Angular App
+         1. Plan for
+            1. UI Requirements and its rendering
+               1. ElementRef, manage the rendering
+               2. Renderer2, help Elementref to manage the rendering
+               3. These classes will be ctor injected in Directive and they are resolved by BrowserModule
+            2. Data that will be shared between directive and its container (component)
+               1. Input decorated properties
+               2. Logic to manipulate proeprties
+            3. Events or behavior using which the dircetive will be activated
+               1. The methods those will be used to activate the Directive based on events
+                  1. It is implemented using @HostListener() decorator applied on methods
+                  2. HostListener() will host JavaScript Event for excuting the method to activate the Directive
+   2. Angular Elements
+      1. UI and Behavior destribution across third party libraries or other Angular apps
+   3. LitElements
+      1. Web Component Principals (?) in Angular
+3. Micro Front-Ends
+4. State Management
+   1. NGRX
+5. Misc
+   1. Gulp
+   2. IOTA CSS
+6. Testing using the Enzume and Jest
+
+=====================================================================================
+Assignment
+
+1. Create a Custom Directive that will check the uniqueness of the ProductId (or any other Id value) entered in Input: text element. If the value of the Id is repeated then chenage the border-color of the text element to 'red', if the value is valie then cheneg the color to yellow.

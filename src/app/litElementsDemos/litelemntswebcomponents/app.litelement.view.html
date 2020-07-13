@@ -1,0 +1,19 @@
+<h2>The Angular Component containing Lit Element</h2>
+
+<div>
+    <strong>Data Recieved from the LitElement</strong>
+    <br />
+    <strong>{{receiveValue}}</strong>
+</div>
+
+<input type="text" [(ngModel)]="message">
+
+
+
+<!--The [data] is custom property from LitElement
+ This is accepting value from message when it is changed
+in Component
+Let the Component Subscrib to the event emitted from the LitElement
+e.g. on-<Event-Name> e.g. on-btn-click="method($event)"
+-->
+<first-element [data]="message" on-btn-click="onReceiveClickEvent($event)" [value1]="v1" [value2]="v2"></first-element>

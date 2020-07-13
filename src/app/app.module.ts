@@ -1,7 +1,12 @@
 // BrowserModule is used to load and render Angular Components and
 // it dependencies in Browser
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+
+// CUSTOM_ELEMENTS_SCHEMA, this is used to inform the browser module
+// that there exists some third party WebComponents / elements
+// those will be rendered along with the Angular comoponents
+
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 // HttpClientModule, manages the Http Platform for Http Communicaiton
 import {HttpClientModule} from '@angular/common/http';
@@ -18,6 +23,14 @@ import { UtilityServiceComponent } from './serviceComponents/app.utilityservice.
 import { CategorySenderComponent } from './masterdetailservice/app.categorysender.component';
 import { ProductReceiverComponent } from './masterdetailservice/app.productreceiver.component';
 import { ProductFormHttpServiceComponent } from './httpservicecomponent/app.productformhttpservice.component';
+import { SecureCallComponent } from './securecallcomponent/app.securecall.component';
+import { TableDirectiveComponent } from './customdirectives/tabledirectivecomponent/app.tabledirective.component';
+import { ColorDirective } from './customdirectives/colordirective/app.color.directive';
+import { LitElementComponent } from './litElementsDemos/litelemntswebcomponents/app.litelement.component';
+
+// import custom WebComponent Elements here
+import './litElementsDemos/mylitelements/app.sample.litelement';
+
 
 @NgModule({
   declarations: [
@@ -26,13 +39,17 @@ import { ProductFormHttpServiceComponent } from './httpservicecomponent/app.prod
     CategoryMasterComponent, ProductChildComponent,
     UtilityServiceComponent,
     CategorySenderComponent, ProductReceiverComponent,
-    ProductFormHttpServiceComponent
+    ProductFormHttpServiceComponent,
+    SecureCallComponent,
+    TableDirectiveComponent, ColorDirective,
+    LitElementComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
     AppRoutingModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [/*UtilityService*/], // singleton instance
-  bootstrap: [ProductFormHttpServiceComponent]
+  bootstrap: [LitElementComponent]
 })
 export class AppModule { }

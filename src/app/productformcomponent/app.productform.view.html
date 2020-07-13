@@ -39,6 +39,11 @@
     </form>
 </div>
 <br>
+
+<app-tabledirective-component [DataSource]="products" (rowClick)="getSelectedProduct($event)">
+</app-tabledirective-component>
+
+
 <!-- <table>
     <thead>
         <tr>
@@ -56,7 +61,7 @@
     </tbody>
 </table> -->
 <!--Dynamic Table Generation-->
-<table>
+<!-- <table>
     <thead>
         <tr>
             <th *ngFor="let h of headers">{{h}}</th>
@@ -67,4 +72,4 @@
             <td *ngFor="let h of headers">{{prd[h]}}</td>
         </tr>
     </tbody>
-</table>
+</table> -->

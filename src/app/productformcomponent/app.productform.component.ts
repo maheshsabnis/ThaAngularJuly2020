@@ -45,4 +45,8 @@ export class ProductFormComponent implements OnInit {
      this.products = this.logic.addProduct(this.product);
      console.log(JSON.stringify(this.products));
    }
+
+   getSelectedProduct(eventData): void {
+      this.product = Object.assign({}, eventData);
+   }
 }
