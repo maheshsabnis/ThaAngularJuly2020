@@ -4,8 +4,8 @@ import {LitElement, html, property, css, customElement} from 'lit-element';
 
 const globalStyle = css `
    input {
-    color: 'yellow',
-    background-color: 'red'
+    color: 'yellow';
+    background-color: 'red';
    }
 `;
 
@@ -18,8 +18,7 @@ export class FirstLitElement extends LitElement {
   // in ES 6
   // x is property name which will be string always
   // and 'any' is typeof the property that will be inferred at runtime
-  [x: string]: any;
-
+  [x: string]: any; // babel-es6 parser for TypeScript
 
 
   // @property, is used to define custom-attribute-property
@@ -35,6 +34,8 @@ export class FirstLitElement extends LitElement {
       values: {type: Array}
     };
   }
+
+
 
   constructor(){
     super();
@@ -56,6 +57,7 @@ export class FirstLitElement extends LitElement {
   }
 
   emitValue() {
+      this.value1 = 'ffff';
       // LitElements makes use of Standard JavaScript
       // Dispatch Event Mechanism to emit / bubble event
       // from LitElement to its parent
@@ -98,4 +100,23 @@ export class FirstLitElement extends LitElement {
       </div>
     `;
   }
+
+  // firstUpdated(changedProperties) {
+  //   console.log('First Update');
+  //   changedProperties.forEach((oldValue, propName) => {
+  //     console.log(`${propName} changed. oldValue: ${oldValue}`);
+  //   });
+  // }
+  // shouldUpdate(changedProperties) {
+  //   console.log('shouldUpdate ' + this.data);
+
+  //   changedProperties.forEach((oldValue, propName) => {
+  //     console.log(`${propName} changed. oldValue: ${oldValue}`);
+  //   });
+  //   return changedProperties.has('DataSource');
+  // }
+  // update() {
+  //   console.log('update');
+  // }
+
 }

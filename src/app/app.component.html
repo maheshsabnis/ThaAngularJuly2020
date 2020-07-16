@@ -15,3 +15,15 @@
 <hr>
 <input type="text" [(ngModel)]="name" class="form-control">
 <hr>
+
+<!--Using Angular Element as a Custom DOM Element
+to subscribe to the event from the Angular Element use
+the JSOM's standard Event binding process
+e.g. if event from the Element is rowClick
+then bind to the event using on-rowClick-->
+
+<div>
+  <strong>{{message}}</strong>
+</div>
+
+<app-datagrid-element id="dg" [DataSource]="products" on-rowClick="subscribe($event)"></app-datagrid-element>

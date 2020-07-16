@@ -223,3 +223,120 @@ Assignment Day 5
 Assignment
 
 1. Create a Custom Directive that will check the uniqueness of the ProductId (or any other Id value) entered in Input: text element. If the value of the Id is repeated then chenage the border-color of the text element to 'red', if the value is valie then cheneg the color to yellow.
+
+=======================================================================================================================================
+Anghular Elements
+npm install --save @angular/elements document-register-elements
+
+# =
+
+npm install --save ngx-build-plus
+
+1. extend the Angular CLI Build behavior
+   1. Single Build with all required dependencies for NG Application
+   2. USe all the Angular specific Classes / objects in the Build so that the file can be shared across applicaitons e.g. Angular Elements for Micros-Front-End apps
+2. ng add ngx-build-plus
+   1. Install build Extension for the Current Angular CLI based apps
+3. The following command to create a single file build
+   1. ng build --prod --output-hashing none --single-bundle true
+      1. This will product main.js with All standard Angular References along witg
+         1. Components
+         2. Services
+         3. Directives
+         4. Pipe
+4. http-server
+   1. Node.js based http server for Http Request processing
+   2. npm install -g http-server
+      1. Command to Run the Http Server
+         1. http-server -p <PORT>
+5. Build ngApp1 and ngApp2 as libs
+6. CReate a Angular app with Communication Service and build it as Lib
+7. Inject this service as 'any' in ngApp1 and ngApp2 and then load it in ngCOntainer app to have disconnedcted communication
+
+======================================================================
+"@ngrx/core": "1.2.0",
+
+- The Package that will be used to manage the NGRX lifeCycle with Angular application with an integartion with rxjs
+  "@ngrx/effects": "8.6.0",
+- Provides an 'Effect' object.
+- This object is a Singletone object that is defined using 'EffectModule'
+- This object manages all Asyncheronous operations dispatched from Angular Actions those are dispatched from Angular Components
+- This object also decides wheather the call is to make to REST API using Angular service based on action or else the dispatched action to be executed locally
+  "@ngrx/router-store": "8.6.0",
+- Make the NGRX store available across all components in Navigation using Routing
+  "@ngrx/store": "8.6.0",
+- Provides a 'StoreModule' that will be used to create a 'Singleton' store instance for the Currently loaded Angular Application
+- Provides the Store Uodates based on 'Reducers'
+- The Reducer object must be implemenetd as 'PURE FUNCTION' so that they will update the 'state (data)' in store with 'prev-state' with 'new-state' and return the new state
+  "@ngrx/store-devtools": "8.6.0",
+- Thiis package will simulate NGRX in browser using 'Browsetr's Redux Plugin'
+
+=======================================================================
+Folder Structure for Angular NGRX Project
+
+- actions
+  - actions.ts
+    - Define all Action Types as exportable
+  - index.ts
+    - Export all Action Types as 'Single Exportable' type
+- effects
+  - This will have the Effect object aka middleware to manage the external calls to REST API usign angular service
+  - The code for reading data from local store using 'selectors'
+- store
+  - Define the initial schema to store
+- reducers
+  - index.ts with the reducer object
+- selectors
+  - Define all selectors to read data from Store
+
+=====================================================================================
+Angular Single Page Application (SPA)
+
+1. @angular/router
+   1. RounterModule
+      1. Route Table, using 'Routes' class
+      2. Each route expression in Routing table is an instance of 'Route' class
+      3. Route class has JSON object with following properties
+         1. path, the Route uri expression
+            1. string
+               1. '', default
+               2. '/<URI>' OR '<URI>'
+               3. '/<URI>/:<PARAMETERS>' OR '<URI>/:<PARMETERS>'
+         2. component, the component to be navigated
+         3. redirectTo, default redirection if no path found
+            1. The expression '\*\*', means any other value that does not match with URI Expression
+         4. children, this is the child route table, collection of 'Route' instances
+            1. childres:[{ROUTE-Expressions}]
+         5. loadChindren, used for 'lazy-loading' of 'dynamically loaded' modules
+            1. loadChildren:()=>import('<PATH-OF-MODULE-FILE>').then(module=>module.<NGMODULE-TO-BE-LOADED>)
+            2. The JavaScript file that contains modules to be loaded on demand when the parent module wants to load children
+         6. canActivate, this is for Role-Based-Security from sever to client, aka guarded routes
+            1. canActivate:[<GUARD-SERVICE>]
+         7. data, this contains the data for guarded routes
+            1. data:{<READ-ROLES-FOR-GUARDS>}
+         8. e.g.
+            1. {path:'<URI>', component:<COMPONENT-NAME>,children:[], canActivate:[],data:{}, redirectTo:'\*\*', loadChildren:}
+      4. Router class
+         1. Used to event-based routing, using 'navigate(['<ROUTE-URI-EXPRESSIOn>'])' method
+      5. ActivatedRoute class
+         1. Used for subscribing to the Route Parameter
+      6. Routing Directives
+         1. [routerLink], the directive for <a> tag for executing routing
+         2. Component Directive
+            1. <router-outlet></router-outlet>
+               1. The Container where the Route Components will be loaded and rendered
+      7. CanActivate interface
+         1. Used by Angular Route Guard Service to decide whether to activate routes for user/role
+      8. ActivateRouteSnapShot class
+         1. Decides to create a route snapshot from the routing table to render based on Users/Roles.
+      9. RouterModule.forRoot(<Route-Table>)
+         1. Load the Routing table on the root of Currently loaded Angular Module
+      10. RouterModule.forChild(<Route-Table>)
+          1. Load the routing table for lazy-loaded modules at the Root of the Angular application
+
+=====================================================================================
+SPA Exercise (30 mins)
+
+1. Create a ProductList Componeng showing the Products Data in Table. Each Row of the table will have Edit/Delete button. On clicking on these buttons, the curresponding compnents must be loaded. After Edit and Delete succseefully, the ProductListComponent must be displayed.
+2. The ProductListCOmponent, must have a button to Add New Prodct to navigate to AddProductComponent.
+3. For the Edit and Delete, the Record must be checked for its availability from the REST API Calls.

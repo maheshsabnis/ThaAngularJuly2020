@@ -1,0 +1,19 @@
+<h2>The Angular Grid Element Using Angular</h2>
+<div>
+  <strong>
+    {{message}}
+  </strong>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let h of headers">{{h}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rec of DataSource" (click)="onRowClick(rec)">
+      <td *ngFor="let h of headers">{{rec[h]}}</td>
+    </tr>
+  </tbody>
+</table>
