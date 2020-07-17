@@ -340,3 +340,49 @@ SPA Exercise (30 mins)
 1. Create a ProductList Componeng showing the Products Data in Table. Each Row of the table will have Edit/Delete button. On clicking on these buttons, the curresponding compnents must be loaded. After Edit and Delete succseefully, the ProductListComponent must be displayed.
 2. The ProductListCOmponent, must have a button to Add New Prodct to navigate to AddProductComponent.
 3. For the Edit and Delete, the Record must be checked for its availability from the REST API Calls.
+
+========================================================================================================
+
+Angular's External Feature Management
+1. External CSS
+   1. Custom CSS and SCSS created by UI Developers
+      1. Local to the Project
+   2. Using External CSS Lib. / Framework
+      1. Referred from External npm packages  
+      2. Bootstrap
+      3. iotaCSS
+         1. Framework build on SASS preprocessing (?)
+            1. SASS preprocessing the SASS object model that provides inheritence (base CSS and CSS that is based upon base CSS)
+            2. Generate CSS from SASS using gulp
+         2. Using iotaCSS
+            1. SASS
+            2. Node
+            3. NPM
+         3. iotaPlate
+            1. npm install -g iotaplate
+               1. Provides 'iotaplate' CLI to create the IOTA project structure
+2. UI Kits
+3. Customized ES6 Objects aka Decorators 
+   1. Create a class decorator and method / proeprty decorator as custom decorator 
+   2. Only Angular Object Model has support for them
+   3. They must be transpiled using
+      1. tsc --target ES5 --experimentalDecorators 
+4. Use the Task Manager Framework of JavaScript to Manages External CSS
+   1. gulp
+      1. Same as Grunt but has capability to execute all tasks as a Single-Stream-Pipeline with full automation 
+         1. The gulp-cli, npm install -g gulp-cli
+            1. This will provide the 'gulp' command to run gulp tasks
+         2. gulp engine, to define tasks e.g. Compile SCSS into CSS and load it in index.html and browser index.html 
+            1. gulp engine need 'gulpfile.js' to define all  tasks
+         3. Plug-ins
+            1. gulp-sass
+               1. The trsnpiler for .scss files into css files
+            2. browser-sync
+               1. Used to monitor changes in .css/.html/.js and then load these changes in index.html
+   2. grunt
+      1. Defines each tasks as a separate executable step and finally merge them together based on the need
+         1. Task1 --> Compile SCSS into CSS
+         2. Task2 --> Compress
+         3. Task3 --> Copy from Dev. Machine to Production Server
+   3. webpack
+      1. Module loader, mainly used for the packaging of Build output for Production
